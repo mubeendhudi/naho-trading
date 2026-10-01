@@ -1,0 +1,379 @@
+@media (prefers-reduced-motion: reduce) {
+
+    .aboutEyebrow,
+    .aboutHeading h2,
+    .aboutCopy {
+        animation: none;
+    }
+}
+
+@media (max-width: 760px) {
+    header {
+        top: 14px;
+        margin: 14px 14px -76px;
+    }
+
+    .processSection {
+        position: relative;
+        overflow: clip;
+    }
+
+    .headerContainer {
+        min-height: 62px;
+    }
+
+    .headerNav,
+    .headerButton {
+        display: none;
+    }
+
+    .menuToggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        padding: 0;
+        border: 1px solid transparent;
+        color: #111;
+        background: transparent;
+        font-size: 21px;
+        cursor: pointer;
+    }
+
+    .mobileNav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        display: block;
+        overflow: hidden;
+        max-height: 0;
+        border-radius: 0 0 10px 10px;
+        background: #fff;
+        opacity: 0;
+        pointer-events: none;
+        transition: max-height 220ms ease, opacity 180ms ease;
+    }
+
+    .mobileNav.isOpen {
+        max-height: 300px;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .mobileNav .navList {
+        display: block;
+    }
+
+    .mobileNav li {
+        border-top: 1px solid #e9e9e9;
+    }
+
+    .mobileNav a {
+        display: block;
+        padding: 20px 14px;
+        color: #111;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 15px;
+        font-weight: 700;
+    }
+
+    .hero {
+        min-height: 720px;
+    }
+
+    .heroContainer {
+        min-height: 720px;
+        padding: 120px 24px 40px;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+
+    .description br {
+        display: none;
+    }
+
+    .heroActions {
+        flex-wrap: wrap;
+    }
+
+    .aboutSection {
+        min-height: auto;
+    }
+
+    .aboutContainer {
+        grid-template-columns: 1fr;
+        gap: 42px;
+        padding: 70px 24px;
+    }
+
+    .aboutEyebrow {
+        margin-top: 0;
+    }
+
+    .aboutHeading h2 {
+        font-size: 38px;
+    }
+
+    .whyContainer {
+        grid-template-columns: 1fr;
+        gap: 38px;
+        min-height: auto;
+        padding: 58px 24px 64px;
+    }
+
+    .whyImageWrap {
+        height: 360px;
+    }
+
+    .whyContent h2 {
+        font-size: 38px;
+    }
+
+    .whyIntro {
+        font-size: 18px;
+    }
+
+    .sectionContainer,
+    .contactContainer,
+    .footerInner,
+    .copyright {
+        width: calc(100% - 48px);
+    }
+
+    .processSection>.sectionContainer>.sectionIntro,
+    .processSection>.sectionContainer>.processGrid {
+        width: calc(100% - 48px);
+    }
+
+    .processSection .statsGrid {
+        padding: 32px 24px;
+    }
+
+    .processRockLeft {
+        top: 170px;
+        left: -135px;
+        width: 260px;
+        height: 330px;
+    }
+
+    .processRockRight {
+        top: 430px;
+        right: -130px;
+        width: 250px;
+        height: 320px;
+    }
+
+    .gradesSection,
+    .differenceSection,
+    .processSection,
+    .contactSection {
+        padding: 72px 0;
+    }
+
+    .processSection>.sectionContainer {
+        width: 100%;
+        max-width: none;
+    }
+
+    .processSection>.sectionContainer>.sectionIntro,
+    .processSection>.sectionContainer>.processGrid {
+        width: min(1155px, calc(100% - 80px));
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .sectionIntro h2,
+    .differenceHeading h2,
+    .contactCopy h2 {
+        font-size: 40px;
+    }
+
+    .gradesGrid,
+    .featureGrid,
+    .statsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .differenceHeading,
+    .contactContainer {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .featureShowcase {
+        grid-template-columns: 1fr;
+    }
+
+    .showcaseImage,
+    .showcasePanel {
+        height: 360px;
+        min-height: 360px;
+    }
+
+    .statsGrid {
+        margin: 55px 0;
+    }
+
+    .processGrid {
+        grid-template-columns: 1fr;
+        row-gap: 26px;
+    }
+
+    .processGrid article,
+    .processGrid article:nth-child(even) {
+        min-height: 0;
+        padding-left: 24px;
+        border: 0;
+    }
+
+    .contactForm {
+        gap: 18px 12px;
+    }
+
+    .footerInner {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px 20px;
+        padding: 56px 0 30px;
+    }
+
+    .footerCta {
+        grid-column: 1 / -1;
+        padding-right: 0;
+        border-right: 0;
+    }
+
+    .footerColumn,
+    .footerNewsletter {
+        padding: 0;
+        border-right: 0;
+    }
+
+    .newsletter {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .newsletter button {
+        width: 100%;
+    }
+
+    .gradesSection .sectionContainer {
+        display: block;
+        width: calc(100% - 4px);
+    }
+
+    .gradesSection .sectionIntro {
+        padding-top: 0;
+        margin-bottom: 42px;
+    }
+
+    .gradesGrid {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+}
+
+@media (max-width: 420px) {
+    .headerButton a {
+        min-width: auto;
+        padding: 0 12px;
+        font-size: 12px;
+    }
+
+    .heroContainer {
+        width: calc(100% - 4px);
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+
+    h1 {
+        font-size: 42px;
+    }
+
+    .heroBadge {
+        padding: 0 12px;
+        font-size: 11px;
+    }
+
+    .aboutContainer {
+        width: calc(100% - 4px);
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+
+    .aboutHeading h2 {
+        font-size: 33px;
+    }
+
+    .whyContainer {
+        width: calc(100% - 4px);
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+
+    .whyImageWrap {
+        height: 280px;
+    }
+
+    .sectionContainer,
+    .contactContainer,
+    .footerInner,
+    .copyright {
+        width: calc(100% - 4px);
+    }
+
+    .gradesGrid,
+    .featureGrid,
+    .statsGrid,
+    .processGrid,
+    .contactForm,
+    .footerInner {
+        grid-template-columns: 1fr;
+    }
+
+    .statsGrid {
+        flex-direction: column;
+    }
+
+    .processSection {
+        height: 1700px;
+    }
+
+    .footerInner {
+        gap: 24px;
+    }
+
+    .footerCta h2 {
+        font-size: 2.6rem;
+    }
+
+    .footerColumn h3 {
+        margin-bottom: 16px;
+    }
+
+    .gradeCard {
+        min-height: 210px;
+    }
+
+    .gradeCard h3 {
+        margin-top: 35px;
+    }
+
+    .processGrid article,
+    .processGrid article:nth-child(even) {
+        padding-left: 0;
+        border-left: 0;
+    }
+
+    .contactForm label:nth-child(4) {
+        grid-column: auto;
+    }
+
+    .footerContainer {
+        gap: 30px;
+    }
+}

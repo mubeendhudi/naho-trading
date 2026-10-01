@@ -1,0 +1,234 @@
+:root {
+    --bg-light: #faf7f1;
+    --bg-panel: #fff;
+    --bg-dark: #111;
+    --bg-contact: #3e1b13;
+    --bg-why: #551817;
+    --brand: #e77149;
+    --brand-strong: #e85d3b;
+    --brand-soft: #f4a58b;
+    --text-dark: #071a30;
+    --text-light: #fff;
+    --text-muted: rgba(17, 17, 17, 0.75);
+    --text-soft: rgba(255, 255, 255, 0.82);
+    --line-soft: rgba(17, 17, 17, 0.12);
+    --shadow-soft: rgba(7, 26, 48, 0.1);
+    --radius-md: 10px;
+    --radius-pill: 999px;
+    --container-lg: min(1400px, calc(100% - 80px));
+    --container-md: min(1155px, calc(100% - 80px));
+    --transition-fast: 220ms ease;
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    color: var(--text-light);
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg-light);
+}
+
+header {
+    position: sticky;
+    z-index: 2;
+    top: 20px;
+    margin: 20px 19px -90px;
+}
+
+.headerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 70px;
+    padding: 0 14px 0 17px;
+    border-radius: var(--radius-md);
+    background: var(--bg-panel);
+}
+
+.logo img {
+    display: block;
+    width: 115px;
+    height: auto;
+}
+
+.navList {
+    display: flex;
+    align-items: center;
+    gap: 29px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navList a {
+    color: #101010;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.navList a:hover {
+    color: var(--brand);
+}
+
+.headerButton a,
+.heroButton,
+.readyButton,
+.contactSubmit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 0;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.headerButton a {
+    min-width: 124px;
+    min-height: 36px;
+    padding: 0 20px;
+    border-radius: var(--radius-pill);
+    color: var(--text-light);
+    background: var(--brand);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.menuToggle,
+.mobileNav {
+    display: none;
+}
+
+.hero {
+    position: relative;
+    min-height: 641px;
+    overflow: hidden;
+    background: var(--bg-dark);
+}
+
+.heroImage {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero::before {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.26);
+    content: "";
+}
+
+.heroContainer {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    width: calc(100% - 200px);
+    min-height: 641px;
+    margin: 0 auto;
+    padding-top: 104px;
+}
+
+.heroContent {
+    max-width: 700px;
+}
+
+.heroBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 40px;
+    padding: 0 18px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 22px;
+    color: #d5d5d5;
+    background: rgba(50, 50, 50, 0.84);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.sectionEyebrow,
+.footerColumn h3 {
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.badgeDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #e77149;
+}
+
+h1 {
+    margin: 29px 0 25px;
+    color: #fff;
+    font-size: clamp(48px, 5.1vw, 64px);
+    font-weight: 700;
+    line-height: 1.04;
+    letter-spacing: -1.5px;
+}
+
+h1 span {
+    color: #e77149;
+}
+
+.description {
+    margin: 0 0 38px;
+    color: #cbd4db;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+.heroActions {
+    display: flex;
+    gap: 14px;
+}
+
+.heroButton {
+    min-width: 161px;
+    height: 54px;
+    padding: 0 22px;
+    border-radius: 28px;
+}
+
+.heroButtonPrimary {
+    color: #111;
+    background: #fff;
+}
+
+.heroButtonSecondary {
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background: transparent;
+}
+
+.headerButton a,
+.heroButton,
+.readyButton,
+.contactSubmit {
+    transition: transform var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.aboutSection {
+    min-height: 490px;
+    color: #071a30;
+    background-color: #faf7f1;
+}
+
