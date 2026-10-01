@@ -1,18 +1,19 @@
 :root {
-    --bg-light: #faf7f1;
-    --bg-panel: #fff;
-    --bg-dark: #111;
-    --bg-contact: #3e1b13;
-    --bg-why: #551817;
-    --brand: #e77149;
-    --brand-strong: #e85d3b;
-    --brand-soft: #f4a58b;
-    --text-dark: #071a30;
+    --bg-light: #f5f2eb;
+    --bg-panel: #fffefa;
+    --bg-dark: #151d1d;
+    --bg-contact: #203633;
+    --bg-why: #203633;
+    --brand: #b65332;
+    --brand-strong: #9f4027;
+    --brand-soft: #f0a184;
+    --brand-on-dark: #f08c68;
+    --text-dark: #1d2d2b;
     --text-light: #fff;
-    --text-muted: rgba(17, 17, 17, 0.75);
+    --text-muted: rgba(29, 45, 43, 0.76);
     --text-soft: rgba(255, 255, 255, 0.82);
-    --line-soft: rgba(17, 17, 17, 0.12);
-    --shadow-soft: rgba(7, 26, 48, 0.1);
+    --line-soft: rgba(29, 45, 43, 0.14);
+    --shadow-soft: rgba(29, 45, 43, 0.12);
     --radius-md: 10px;
     --radius-pill: 999px;
     --container-lg: min(1400px, calc(100% - 80px));
@@ -27,6 +28,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 110px;
 }
 
 body {
@@ -69,7 +71,7 @@ header {
 }
 
 .navList a {
-    color: #101010;
+    color: var(--text-dark);
     font-size: 15px;
     font-weight: 500;
     text-decoration: none;
@@ -172,7 +174,7 @@ header {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #e77149;
+    background: var(--brand-on-dark);
 }
 
 h1 {
@@ -185,12 +187,12 @@ h1 {
 }
 
 h1 span {
-    color: #e77149;
+    color: var(--brand-on-dark);
 }
 
 .description {
     margin: 0 0 38px;
-    color: #cbd4db;
+    color: #d7dfdc;
     font-size: 17px;
     font-weight: 400;
     line-height: 1.7;
@@ -228,7 +230,7 @@ h1 span {
 
 .aboutSection {
     min-height: 490px;
-    color: #071a30;
-    background-color: #faf7f1;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
 }
 
