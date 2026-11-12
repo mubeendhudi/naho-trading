@@ -1,54 +1,39 @@
-@media (prefers-reduced-motion: reduce) {
-    .aboutEyebrow,
-    .aboutHeading h2,
-    .aboutCopy {
-        animation: none;
-    }
-}
+/* Fluid tokens (clamp) handle most scaling; breakpoints only change layout.
+   1200 → small laptop · 960 → tablet · 760 → large phone · 480 → phone */
 
-@media (min-width: 761px) and (max-width: 1050px) {
-    .heroContainer {
-        width: calc(100% - 80px);
-    }
-
-    .aboutContainer {
-        width: calc(100% - 80px);
-        gap: 40px;
-    }
-
+/* ---------- ≤ 1200px ---------- */
+@media (max-width: 1200px) {
     .gradesSection .sectionContainer {
-        display: grid;
         grid-template-columns: 1fr;
-        gap: 34px;
-        width: min(950px, calc(100% - 80px));
     }
 
     .gradesSection .sectionIntro {
-        padding-top: 0;
+        position: static;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: end;
+        column-gap: 40px;
+        max-width: none;
     }
 
-    .whyContainer {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 32px;
-        width: calc(100% - 80px);
-        min-height: auto;
-        padding: 80px 0;
+    .gradesSection .sectionIntro > * {
+        grid-column: 1;
     }
 
-    .whyImageWrap {
-        height: 420px;
+    .gradesSection .sectionIntro p:not(.sectionEyebrow) {
+        max-width: 620px;
     }
 
-    .contactContainer {
-        grid-template-columns: 1fr;
-        gap: 44px;
-        width: min(950px, calc(100% - 80px));
+    .gradesSection .sectionIntro .readyButton {
+        grid-column: 2;
+        grid-row: 1 / span 3;
+        align-self: end;
+        margin-top: 0;
     }
 
     .footerInner {
-        grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
-        gap: 36px 24px;
-        width: calc(100% - 80px);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        row-gap: 48px;
     }
 
     .footerCta {
@@ -57,42 +42,25 @@
         border-right: 0;
     }
 
-    .processSection > .sectionContainer {
-        width: calc(100% - 80px);
-    }
-
-    .processSection > .sectionContainer > .sectionIntro,
-    .processSection > .sectionContainer > .processGrid {
-        width: 100%;
-    }
-
-    .processSection .statsGrid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px 24px;
-        padding: 32px 40px;
+    .footerColumn:nth-child(2) {
+        padding-left: 0;
     }
 }
 
-@media (max-width: 760px) {
-    html {
-        scroll-padding-top: 90px;
+/* ---------- ≤ 960px: tablet ---------- */
+@media (max-width: 960px) {
+    :root {
+        --header-h: 60px;
     }
 
     header {
-        top: 14px;
-        margin: 14px 14px -76px;
-    }
-
-    .processSection {
-        position: relative;
-        overflow: clip;
-        height: auto;
-        min-height: 0;
+        top: 12px;
+        margin-top: 12px;
+        margin-bottom: calc(-1 * (var(--header-h) + 12px));
     }
 
     .headerContainer {
-        min-height: 62px;
+        padding: 0 8px 0 16px;
     }
 
     .headerNav,
@@ -101,338 +69,241 @@
     }
 
     .menuToggle {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 42px;
-        height: 42px;
+        display: inline-grid;
+        place-items: center;
+        width: 44px;
+        height: 44px;
         padding: 0;
-        border: 1px solid transparent;
+        border: 0;
+        border-radius: var(--radius-sm);
         color: var(--text-dark);
         background: transparent;
-        font-size: 21px;
+        font-size: 1.25rem;
         cursor: pointer;
+        transition: background-color var(--transition-fast);
+    }
+
+    .menuToggle:hover {
+        background: rgba(29, 45, 43, 0.06);
     }
 
     .mobileNav {
         position: absolute;
-        top: 100%;
+        top: calc(100% + 8px);
         right: 0;
         left: 0;
         display: block;
-        overflow: hidden;
-        max-height: 0;
-        border-radius: 0 0 10px 10px;
+        padding: 8px;
+        border: 1px solid rgba(29, 45, 43, 0.06);
+        border-radius: var(--radius-md);
         background: var(--bg-panel);
+        box-shadow: var(--shadow-md);
         opacity: 0;
-        pointer-events: none;
-        transition: max-height 220ms ease, opacity 180ms ease;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition: opacity var(--transition-fast), transform var(--transition-med), visibility 0s linear 200ms;
     }
 
     .mobileNav.isOpen {
-        max-height: 300px;
         opacity: 1;
-        pointer-events: auto;
+        visibility: visible;
+        transform: none;
+        transition: opacity var(--transition-fast), transform var(--transition-med), visibility 0s;
     }
 
     .mobileNav .navList {
-        display: block;
-    }
-
-    .mobileNav li {
-        border-top: 1px solid var(--line-soft);
+        display: grid;
+        gap: 2px;
     }
 
     .mobileNav a {
         display: block;
-        padding: 18px 16px;
-        color: var(--text-dark);
-        font-size: 15px;
-        font-weight: 600;
+        padding: 14px 14px;
+        border-radius: var(--radius-sm);
+        font-size: 1rem;
     }
 
-    .hero {
-        min-height: 720px;
+    .mobileNav a:hover {
+        background: var(--bg-light);
     }
 
-    .heroContainer {
-        width: calc(100% - 48px);
-        min-height: 720px;
-        padding: 120px 0 40px;
+    .aboutContainer,
+    .whyContainer,
+    .contactContainer {
+        grid-template-columns: 1fr;
     }
 
-    h1 {
-        font-size: 48px;
-    }
-
-    .description br {
+    /* Hand-placed line breaks only make sense on wide layouts */
+    .aboutHeading h2 br,
+    .whyContent h2 br,
+    .contactCopy h2 br {
         display: none;
     }
 
-    .heroActions {
-        flex-wrap: wrap;
-    }
-
-    .aboutSection {
-        min-height: auto;
-    }
-
-    .aboutContainer {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        width: calc(100% - 48px);
-        padding: 70px 0;
-    }
-
-    .aboutEyebrow {
-        margin-top: 0;
-    }
-
     .aboutHeading h2 {
-        font-size: 38px;
-    }
-
-    .whyContainer {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        width: calc(100% - 48px);
-        min-height: auto;
-        padding: 58px 0 64px;
+        max-width: 640px;
     }
 
     .whyImageWrap {
-        height: 360px;
+        aspect-ratio: 16 / 10;
     }
 
-    .whyContent h2 {
-        font-size: 38px;
-    }
-
-    .whyIntro {
-        font-size: 18px;
-    }
-
-    .sectionContainer,
-    .contactContainer,
-    .footerInner,
-    .copyright {
-        width: calc(100% - 48px);
-    }
-
-    .processSection > .sectionContainer {
-        width: 100%;
+    .whyContent {
         max-width: none;
     }
 
-    .processSection > .sectionContainer > .sectionIntro,
-    .processSection > .sectionContainer > .processGrid {
-        width: calc(100% - 48px);
-        margin-right: auto;
-        margin-left: auto;
-    }
-
-    .processSection .statsGrid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px 20px;
-        padding: 32px 24px;
-    }
-
-    .processRockLeft {
-        top: 170px;
-        left: -135px;
-        width: 260px;
-        height: 330px;
-    }
-
-    .processRockRight {
-        top: 430px;
-        right: -130px;
-        width: 250px;
-        height: 320px;
-    }
-
-    .gradesSection,
-    .differenceSection,
-    .processSection,
-    .contactSection {
-        padding: 72px 0;
-    }
-
-    .sectionIntro h2,
-    .differenceHeading h2,
-    .contactCopy h2 {
-        font-size: 40px;
-    }
-
-    .gradesGrid,
-    .featureGrid,
-    .statsGrid {
+    .gradesGrid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .differenceHeading,
-    .contactContainer {
-        grid-template-columns: 1fr;
-        gap: 35px;
+    .gradeCard {
+        aspect-ratio: 4 / 3.6;
     }
 
     .featureShowcase {
         grid-template-columns: 1fr;
     }
 
-    .showcaseImage,
-    .showcasePanel {
-        height: 360px;
-        min-height: 360px;
+    .showcaseImage {
+        min-height: 0;
+        aspect-ratio: 16 / 9;
     }
 
     .statsGrid {
-        margin: 55px 0;
-    }
-
-    .processGrid {
-        grid-template-columns: 1fr;
-        row-gap: 26px;
-    }
-
-    .processGrid article,
-    .processGrid article:nth-child(even) {
-        min-height: 0;
-        padding-left: 24px;
-        border: 0;
-    }
-
-    .contactForm {
-        gap: 18px 12px;
-    }
-
-    .footerInner {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 28px 20px;
-        padding: 56px 0 30px;
     }
 
-    .footerCta {
-        grid-column: 1 / -1;
-        padding-right: 0;
-        border-right: 0;
-    }
-
-    .footerColumn,
-    .footerNewsletter {
-        padding: 0;
-        border-right: 0;
-    }
-
-    .newsletter {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .newsletter button {
-        width: 100%;
-    }
-
-    .gradesSection .sectionContainer {
-        display: block;
-        width: calc(100% - 48px);
-    }
-
-    .gradesSection .sectionIntro {
-        padding-top: 0;
-        margin-bottom: 42px;
-    }
-
-    .gradesGrid {
-        grid-template-columns: 1fr;
-        width: 100%;
-    }
-}
-
-@media (max-width: 420px) {
-    .heroContainer,
-    .aboutContainer,
-    .whyContainer,
-    .sectionContainer,
-    .contactContainer,
-    .footerInner,
-    .copyright {
-        width: calc(100% - 40px);
-    }
-
-    .heroContainer {
-        padding: 120px 0 40px;
-    }
-
-    h1 {
-        font-size: 42px;
-    }
-
-    .heroBadge {
-        padding: 0 12px;
-        font-size: 11px;
-    }
-
-    .aboutContainer {
-        padding: 70px 0;
-    }
-
-    .aboutHeading h2 {
-        font-size: 33px;
-    }
-
-    .whyContainer {
-        padding: 58px 0 64px;
-    }
-
-    .whyImageWrap {
-        height: 280px;
-    }
-
-    .gradesGrid,
-    .featureGrid,
-    .processGrid,
-    .contactForm,
-    .footerInner {
-        grid-template-columns: 1fr;
-    }
-
-    .processSection .statsGrid {
-        grid-template-columns: 1fr;
-    }
-
-    .footerInner {
-        gap: 24px;
-    }
-
-    .footerCta h2 {
-        font-size: 2.6rem;
-    }
-
-    .footerColumn h3 {
-        margin-bottom: 16px;
-    }
-
-    .gradeCard {
-        min-height: 210px;
-    }
-
-    .gradeCard h3 {
-        margin-top: 35px;
-    }
-
-    .processGrid article,
-    .processGrid article:nth-child(even) {
+    .statsGrid div:nth-child(3) {
         padding-left: 0;
         border-left: 0;
     }
 
-    .contactForm label:nth-child(4) {
-        grid-column: auto;
+    .statsGrid div:nth-child(n + 3) {
+        border-top: 1px solid var(--line-soft);
     }
 
-    .footerContainer {
-        gap: 30px;
+    .processGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contactCopy > p {
+        max-width: 560px;
+    }
+
+    .contactMeta {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+    }
+}
+
+/* ---------- ≤ 760px: large phone ---------- */
+@media (max-width: 760px) {
+    .heroContainer {
+        align-items: flex-end;
+        padding-bottom: 56px;
+    }
+
+    .hero::before {
+        background: linear-gradient(0deg, rgba(10, 16, 16, 0.78) 0%, rgba(10, 16, 16, 0.4) 55%, rgba(10, 16, 16, 0.25) 100%);
+    }
+
+    .gradesSection .sectionIntro {
+        display: block;
+    }
+
+    .gradesSection .sectionIntro .readyButton {
+        margin-top: 24px;
+    }
+
+    .processRock {
+        opacity: 0.1;
+    }
+
+    .processGrid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .contactMeta {
+        grid-template-columns: 1fr;
+    }
+
+    .footerInner {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 40px 24px;
+    }
+
+    .footerColumn {
+        padding: 0;
+        border-right: 0;
+    }
+
+    .footerNewsletter {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ---------- ≤ 560px ---------- */
+@media (max-width: 560px) {
+    .gradesGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .gradeCard {
+        aspect-ratio: 16 / 11;
+    }
+
+    .whyList {
+        grid-template-columns: 1fr;
+    }
+
+    .contactForm {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .showcaseFooter {
+        gap: 16px;
+    }
+}
+
+/* ---------- ≤ 480px: phone ---------- */
+@media (max-width: 480px) {
+    .heroBadge {
+        font-size: 0.75rem;
+    }
+
+    .heroActions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .heroButton {
+        width: 100%;
+    }
+
+    .statsGrid div {
+        padding: 24px 12px;
+    }
+
+    .statsGrid div:nth-child(even) {
+        padding-right: 0;
+    }
+
+    .contactSubmit,
+    .differenceCta {
+        width: 100%;
+    }
+
+    .contactSubmit {
+        justify-self: stretch;
+    }
+
+    .footerInner {
+        grid-template-columns: 1fr;
+    }
+
+    .footerColumn:nth-child(2) {
+        padding-left: 0;
     }
 }
